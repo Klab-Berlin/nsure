@@ -1,8 +1,8 @@
-[![build status](https://secure.travis-ci.org/itsatony/ensure.png)](http://travis-ci.org/itsatony/ensure)
+[![build status](https://secure.travis-ci.org/itsatony/nsure.png)](http://travis-ci.org/itsatony/nsure)
 
-# ensure
+# nsure
 
-[ensure] is a nodejs class that allows deep testing, modification chains and model generation of objects
+[nsure] is a nodejs class that allows deep testing, modification chains and model generation of objects
 
 The goal here was to have a simple, yet highly flexible cheking system for variables
 
@@ -12,16 +12,16 @@ This project is still in very early development, hence anything is subject to ch
 * installing
 
 ````
-    npm install ensure
+    npm install nsure
 ````
 
 * a simple example
 
-this is a series of checks and modifications to make sure (ensure ;) ) that a string is a valid email
+this is a series of checks and modifications to make sure (nsure ;) ) that a string is a valid email
 
 ````
-		var ensure = require('ensure');
-    var ensureRules_user_email = {
+		var nsure = require('nsure');
+    var nsureRules_user_email = {
 			defaultTo: function() {
 				return 'defaultEmail@itsatony.com';
 			},
@@ -54,14 +54,14 @@ this is a series of checks and modifications to make sure (ensure ;) ) that a st
 				}
 			}
 		};
-		var emailCheck = new ensure(ensureRules_user_email);
+		var emailCheck = new nsure(nsureRules_user_email);
 		emailCheck('bla @blub');
 ````
 
 * getting a model from a more complex check
 
-Here a complex object is defined, then a ruleset is defined and a ensure generated for it. the object is passed through and the result is modified appropriately.
-Also, whenever a ensure is instanced using a ruleset, it will generate a model based on that set of rules, which is available via  .model
+Here a complex object is defined, then a ruleset is defined and a nsure generated for it. the object is passed through and the result is modified appropriately.
+Also, whenever a nsure is instanced using a ruleset, it will generate a model based on that set of rules, which is available via  .model
 
 ````
 		var rules = {
@@ -145,7 +145,7 @@ Also, whenever a ensure is instanced using a ruleset, it will generate a model b
 					}
 				}, 
 				o: {
-					checks: [ 'type', 'deepEnsure' ],
+					checks: [ 'type', 'subNsure' ],
 					type: {
 						expected: 'object',
 						onFail: [ 'returnError' ],
@@ -154,7 +154,7 @@ Also, whenever a ensure is instanced using a ruleset, it will generate a model b
 							msg: 'o must be a object.'
 						}
 					},
-					deepEnsure: {
+					subNsure: {
 						attributesToCheck: {
 							o_a: {
 								checks: [ 'type' ],
@@ -168,7 +168,7 @@ Also, whenever a ensure is instanced using a ruleset, it will generate a model b
 								}
 							},
 							o_c: {
-								checks: [ 'type', 'deepEnsure' ],
+								checks: [ 'type', 'subNsure' ],
 								type: {
 									expected: 'object',
 									onFail: [ 'returnError' ],
@@ -177,7 +177,7 @@ Also, whenever a ensure is instanced using a ruleset, it will generate a model b
 										msg: 'o.o_c must be a object.'
 									}
 								},
-								deepEnsure: {
+								subNsure: {
 									attributesToCheck: {
 										o_c_1: {
 											checks: [ 'type' ],
@@ -203,7 +203,7 @@ Also, whenever a ensure is instanced using a ruleset, it will generate a model b
 			onError: 'returnErrorMsg'
 		};
 		
-		var testEnsure = new ensureField(rules);
+		var testEnsure = new nsureField(rules);
 		console.log(testObject);
 		var result = testEnsure.check(testObject);
 		console.log(result);

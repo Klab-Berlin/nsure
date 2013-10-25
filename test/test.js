@@ -1,6 +1,6 @@
 var mongodb = require('mongodb');
 var ObjectID = mongodb.ObjectID;
-var ensure = require ('../lib/ensure');
+var nsure = require ('../lib/nsure');
 var should = require('should');
 
 
@@ -108,7 +108,7 @@ var rules = {
 			}
 		}, 
 		o: {
-			checks: [ 'type', 'deepEnsure' ],
+			checks: [ 'type', 'subNsure' ],
 			type: {
 				expected: 'object',
 				onFail: [ 'returnError' ],
@@ -117,7 +117,7 @@ var rules = {
 					msg: 'o must be a object.'
 				}
 			},
-			deepEnsure: {
+			subNsure: {
 				attributesToCheck: {
 					o_a: {
 						checks: [ 'type' ],
@@ -131,7 +131,7 @@ var rules = {
 						}
 					},
 					o_c: {
-						checks: [ 'type', 'deepEnsure' ],
+						checks: [ 'type', 'subNsure' ],
 						type: {
 							expected: 'object',
 							onFail: [ 'returnError' ],
@@ -140,7 +140,7 @@ var rules = {
 								msg: 'o.o_c must be a object.'
 							}
 						},
-						deepEnsure: {
+						subNsure: {
 							attributesToCheck: {
 								o_c_1: {
 									checks: [ 'type' ],
@@ -166,7 +166,7 @@ var rules = {
 	onError: 'returnErrorMsg'
 };
  
-var testEnsure = new ensure(rules);
+var testEnsure = new nsure(rules);
 var result = testEnsure.check(testObject);
 var helpers = {};
 
@@ -176,7 +176,7 @@ describe(
 		it(
 			'should return something', 
 			function(done) {
-				helpers.ensure = new ensure(rules);
+				helpers.nsure = new nsure(rules);
 				done();
 			}
 		);
@@ -190,7 +190,7 @@ describe(
 		it(
 			'should have the o.o_c.o_c_1 property and it should be a number', 
 			function(done) {
-				helpers.ensure.model.o.o_c.o_c_1.should.be.a.number;
+				helpers.nsure.model.o.o_c.o_c_1.should.be.a.number;
 				done();
 			}
 		);
@@ -199,12 +199,12 @@ describe(
 
 
 describe(
-	'check for ensure.check completing',
+	'check for nsure.check completing',
 	function() {
 		it(
-			'should perform the ensure checks',
+			'should perform the nsure checks',
 			function(done) {
-				helpers.checkResult = helpers.ensure.check(testObject);
+				helpers.checkResult = helpers.nsure.check(testObject);
 				helpers.checkResult.should.be.a.object;
 				done();
 			}
