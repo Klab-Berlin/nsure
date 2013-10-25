@@ -1,0 +1,16 @@
+{
+  "name": "ensure",
+  "description": "ensure is a nodejs class that allows deep testing, modification chains and model generation of objects",
+  "version": "0.1.0",
+  "author": "Toni Wagner <i@itsatony.com>",
+  "engine": "node >= 0.10",
+  "main": "lib/ensure.js",
+  "dependencies": {		
+		"mongodb": "latest"
+  },
+  "devDependencies": {
+		"mocha": "latest",
+		"should": "latest"
+  }
+}
+
