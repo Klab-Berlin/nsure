@@ -4,7 +4,7 @@
   "version": "0.1.0",
   "author": "Toni Wagner <i@itsatony.com>",
   "engine": "node >= 0.10",
-  "main": "lib/ensure.js",
+  "main": "lib/nsure.js",
   "dependencies": {		
 		"mongodb": "latest"
   },
