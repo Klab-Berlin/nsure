@@ -27,7 +27,8 @@ var language = {
 			data: 'data',
 			result: 'result',
 			status: 'status',
-			run: 'run'
+			run: 'run',
+			model: 'model'
 		}
 	}
 }; 

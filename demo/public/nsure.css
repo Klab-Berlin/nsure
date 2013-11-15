@@ -169,6 +169,12 @@ button:hover {
 	top: 45%;
 	text-align: right;
 }
+.rightfloat {
+	position: relative;
+	right: 0px;
+	margin-top: 20px;
+	text-align: right;
+}
 
 .leftbottom {
 	position: fixed;
@@ -356,11 +362,6 @@ table {
 	float: left;
 }
 
-.dotabutton {
-	margin-left: 10px;
-	width: 200px;
-}
-
 .breaker {
 	display: block;
 	clear: both;
@@ -409,9 +410,9 @@ table {
 }
 
 .statusLine {
-	font-size: 2em;
+	font-size: 1.5em;
 	background: #222222;
-	padding: 10px;
+	padding: 6px;
 	width: 100%;
 }
 
@@ -446,8 +447,15 @@ table {
 
 
 .blockCaption {
-	font-size: 2em;
+	font-size: 1.5em;
 	background: #223344;
 	width: 100%;
 	padding: 2px;
+}
+
+
+.examplelink {
+	margin-top: 1.2em;
+	clear: both;
+	position: relative;
 }

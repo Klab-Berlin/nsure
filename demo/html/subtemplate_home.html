@@ -5,6 +5,9 @@
 </div>
 <div id="nsure_body_centerColumn" class="bodyCenterColumn">
 	<div class="contentBlock">
+		<div style="clear:both; float:left; height: 1em; width: 100%; position:relative;"></div>
+		<div class="floatBlock"><div class="statusLine">{{=it.lang.home.status}}: <span id="nsure_span_status"></span></div>
+		<div style="clear:both; height: 1em; width: 100%; position:relative;"></div>
 		<div class="floatBlock" >
 			<div class="blockCaption">{{=it.lang.home.rules}}</div>
 			<textarea id="nsure_codemirror_rules" cols=50 rows=20></textarea>			
@@ -13,18 +16,22 @@
 			<div class="blockCaption">{{=it.lang.home.data}}</div>
 			<textarea id="nsure_codemirror_data" cols=50 rows=20></textarea>
 		</div>
+		<div style="clear:both; height: 1em; width: 100%; position:relative;"></div>
+		<div class="floatBlock" id="nsure_block_model">
+			<div class="blockCaption">{{=it.lang.home.model}}</div>
+			<textarea id="nsure_codemirror_model" cols=50 rows=20></textarea>
+		</div>
 		<div class="floatBlock" id="nsure_block_results">
 			<div class="blockCaption">{{=it.lang.home.result}}</div>
 			<textarea id="nsure_codemirror_results" cols=50 rows=20></textarea>
 		</div>
-		<div style="clear:both; height: 2em; width: 100%; position:relative;"></div>
-		<div class="floatBlock"><div class="statusLine">{{=it.lang.home.status}}: <span id="nsure_span_status"></span></div>
-		</div>
 	</div>
 </div>
+
 <div id="nsure_body_rightColumn" class="bodyRightColumn">
 	<div id="nsuresearch_wrapper" class="rightcentered">
-		<a id="navi_run" class="navigationanchor rightanchor" >{{=it.lang.home.run}}<div class="arrow-right"></div></a>
+		<div class="examplelink"><a id="navi_active" data-ref="active" class="navigationanchor rightanchor" >bool<div class="arrow-right"></div></a></div>
+		<div class="examplelink"><a id="navi_email" data-ref="email" class="navigationanchor rightanchor examplelink" >email<div class="arrow-right"></div></a></div>
 	</div>
 </div>
 
