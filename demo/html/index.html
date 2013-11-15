@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>nSure</title>
+    <meta http-equiv='expires' content='-1'>
+    <meta http-equiv='Content-Type' content='text/html; charset=utf-8'>
+    <meta http-equiv='imagetoolbar' content='no'>    
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">    
+    <meta name='audience' content='all'>
+    <meta name='author' content='varuul'>
+    <meta name='description' content='a nodejs object manipulation-chain class'>
+    <meta name='keywords' content='nodejs verification test check class object deep chain'>
+    <meta name='resource-type' content='document'>
+    <meta name='revisit-after' content='7 days'>
+    <meta property="og:description" content="a nodejs object manipulation-chain class"/>
+    <meta property="og:image" content="/nSure_logo.jpg"/>
+    <meta property="og:image:secure_url" content="/nSure_logo.jpg"/>
+    <meta property="og:site_name" content="nSure"/>
+    <meta property="og:title" content="nSure"/>
+    <meta property="og:type" content="website"/>
+    <link rel="image_src" href="/nSure_logo.jpg"/>
+		<link rel='stylesheet' type='text/css' href='/nsure.css'/>
+		 <!-- jQUery -->
+		<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+		<script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js"></script>
+		 <!-- VWC -->
+		<script type="text/javascript" src="/lib/nsure.js"></script>
+		<script type="text/javascript" src="/lib/vwc.js"></script>
+		<script type="text/javascript" src="/lib/bubpubsub/lib/bubpubsub.js"></script>
+		<script type="text/javascript" src="/lib/minions/lib/minions.js"></script>
+		<script type="text/javascript" src="/lib/minions/lib/minions.browser.js"></script>
+		<script type="text/javascript" src="/lib/minions/lib/minions.jquery.js"></script>
+		<script type="text/javascript" src="/lib/escalator/lib/escalator.js"></script>
+		
+		<script src="/codemirror-3.19/lib/codemirror.js"></script>
+		<link rel="stylesheet" href="/codemirror-3.19/lib/codemirror.css">
+		<script src="/codemirror-3.19/mode/javascript/javascript.js"></script>
+		
+		<!-- google analytics
+    <script type="text/javascript">
+      var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', '{{=it.googleAnalyticsId}}']);
+      _gaq.push(['_trackPageview']);
+      (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+      })();
+    </script>  -->
+	</head>
+	<body class="bgcontainer bgimage0{{=it.oneRandomOf([1,2,3,4])}}">
+		<div id="nSureheader_wrapper">
+			<div id="headerContainer" class="headerContainer">
+				<span style="font-size: 3em">{{=it.lang.sitename}} |</span><span style="font-size: 1.5em; margin-left: 8px;">{{=it.lang.pagenames[it.pageName]}}</span>
+			</div>
+		</div>
+		<div id="nSurebody_wrapper" class="bodyWrapper">
+			{{=it.subtemplate}}
+		</div>
+	</body>
+</html>

@@ -1,0 +1,25 @@
+{
+  "name": "nsure_web",
+  "description": "nsure is a nodejs class that allows deep testing, modification chains and model generation of objects",
+  "version": "0.1.4",
+  "author": "Toni Wagner <i@itsatony.com>",
+  "engines": {
+    "node": ">= 0.10.0"
+	},
+  "keywords": [
+		"nodejs",
+    "verification",
+    "testing",
+    "model"
+  ],
+  "license": "MIT",
+  "dependencies": {		
+		"vws": "git+ssh://git@github.com:itsatony/VisualWebServer.git#master",
+    "escalator": "latest",
+    "bubpubsub": "latest",
+    "minions": "latest",
+    "json-stringify-safe": "latest",
+    "mongodb": "latest",
+		"nobase": "latest"
+  }
+}
