@@ -152,21 +152,25 @@ function selectDemo(name) {
 };
 
 function runNsure() {
+	vwc.activeNsure = {};
 	var rulesString = rulesCodeMirror.doc.getValue();
 	try {
 		var rules = eval(";(function() { var a = " + rulesString + '; return a;}());');
+		vwc.activeNsure.rules = rules;
 	} catch(err) {
 		return showStatus('error', 'rules', err);
 	}
 	var dataString = dataCodeMirror.doc.getValue();
 	try {
 		var data = eval(";(function() { var a = " + dataString + '; return a;}());');
+		vwc.activeNsure.data = data;
 	} catch(err) {
 		return showStatus('error', 'data', err);
 	}
 	var thisNsure = new Nsure(rules);
 	try {
 		var result = thisNsure.check(data);
+		vwc.activeNsure.result = result;
 	} catch (err) {
 		return showStatus('error', 'nsure', err);
 	}
@@ -177,6 +181,7 @@ function runNsure() {
 	}
 	try {
 		var modelString = JSON.stringify(thisNsure.model);
+		vwc.activeNsure.model = thisNsure.model;
 	} catch (err) {
 		return showStatus('error', 'model', err);
 	}
