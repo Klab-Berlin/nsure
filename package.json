@@ -1,7 +1,7 @@
 {
   "name": "nsure",
   "description": "nsure is a nodejs class that allows deep testing, modification chains and model generation of objects. demo requires xs to a currently private repo. sorry about that.",
-  "version": "0.1.9",
+  "version": "0.1.10",
   "author": "Toni Wagner <i@itsatony.com>",
   "engines": {
     "node": ">= 0.10.0"
