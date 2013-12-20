@@ -65,6 +65,17 @@ vwc = {
 			data: {
 				gender: 'n'
 			}
+		},
+		protocols: {
+			rules: {
+				'attributesToCheck': {
+					// short would be: 'gender': Nsure.helpers.inListNsure(['m', 'f'])
+					'protocols': Nsure.helpers.arrayOfNsure(['string'], ['http', 'ftp', 'https' ], ['http'])
+				}
+			},
+			data: {
+				protocols: 'http'
+			}
 		}
 	}
 };
@@ -76,6 +87,10 @@ vwc = {
 
 jQuery(document).ready(
 	function() {
+		for (var name in vwc.demos) {
+			var html = '<div class="examplelink"><a id="navi_' + name + '" data-ref="' + name + '" class="navigationanchor rightanchor" >' + name + '<div class="arrow-right"></div></a></div>'
+			jQuery('#nsuresearch_wrapper').append(html);
+		}		
 		jQuery('.examplelink').click(
 			function(e) {
 				var ref = jQuery(e.target).attr('data-ref');

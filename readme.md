@@ -67,7 +67,8 @@ this is a series of checks and modifications to make sure (nsure ;) ) that a str
 			'height': Nsure.helpers.numberNsure(100, 290, 180),
 			'tld': Nsure.helpers.stringNsure(4, '.com'),
 			'url': Nsure.helpers.urlNsure(400, 'http://google.com'),
-			'email': Nsure.helpers.emailNsure()
+			'email': Nsure.helpers.emailNsure(),
+			'protocols': Nsure.helpers.arrayOfNsure(['string', ['http', 'ftp', 'https' ], ['http'])
 		},
 		onUnruledAttributes: [ 'deleteAttribute' ],
 		onError: 'returnErrorMsg'
