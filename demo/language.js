@@ -2,7 +2,7 @@
 
 var language = {
 	en: {
-		sitename: 'nsure',
+		sitename: 'nsure !',
 		p404: 'page not found',
 		pagenames: {
 			home: 'check and manipulate deep objects with function chains',

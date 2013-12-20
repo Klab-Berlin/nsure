@@ -54,6 +54,17 @@ vwc = {
 				}
 			},
 			data: { email: 'bla @blub,de' }
+		},
+		gender: {
+			rules: {
+				'attributesToCheck': {
+					// short would be: 'gender': Nsure.helpers.inListNsure(['m', 'f'])
+					'gender': Nsure.helpers.inListNsure(['m', 'f'])
+				}
+			},
+			data: {
+				gender: 'n'
+			}
 		}
 	}
 };

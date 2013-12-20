@@ -58,6 +58,37 @@ this is a series of checks and modifications to make sure (nsure ;) ) that a str
 		emailCheck('bla @blub');
 ````
 
+* helpers for shortening your checks
+
+````
+	var helpDemoRuleSet = {
+		'attributesToCheck': {
+			'gender': Nsure.helpers.inListNsure(['m', 'f']),
+			'height': Nsure.helpers.numberNsure(100, 290, 180),
+			'tld': Nsure.helpers.stringNsure(4, '.com'),
+			'url': Nsure.helpers.urlNsure(400, 'http://google.com'),
+			'email': Nsure.helpers.emailNsure()
+		},
+		onUnruledAttributes: [ 'deleteAttribute' ],
+		onError: 'returnErrorMsg'
+	};
+	var testObject = {
+	};
+	var testEnsure = new Nsure(helpDemoRuleSet);
+	console.log(testObject);
+	console.log('single attribute check ---');
+	var result = testEnsure.check(testObject, [ 'gender' ]);
+	console.log(result);
+	console.log('full attribute check ---');
+	var result = testEnsure.check(testObject);
+	console.log(result);
+	console.log('---MODEL---');
+	console.log(testEnsure.model);
+	console.log('---=====---'); 
+		
+````
+
+
 * getting a model from a more complex check
 
 Here a complex object is defined, then a ruleset is defined and a nsure generated for it. the object is passed through and the result is modified appropriately.
