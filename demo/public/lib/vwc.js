@@ -16,6 +16,54 @@ vwc = {
 			},
 			data: { active: 1 }
 		},
+		objectContent: {
+			rules: {
+				"attributesToCheck": {
+					"protocols": {
+						"enforcePresence": true,
+						"defaultTo": {
+							"http": false,
+							"https": false
+						},
+						"checks": [
+							"isObject",
+							"objectOf"
+						],
+						"isObject": {
+							"onFail": [
+								"toFallback"
+							],
+							"fallback": {
+								"http": "true"
+							}
+						},
+						"objectOf": {
+							"allowedTypes": [
+								"boolean"
+							],
+							"allowedValues": [
+								true,
+								false
+							],
+							"allowedKeys": [
+								"http",
+								"https"
+							]
+						}
+					}
+				},
+				onUnruledAttributes: [ 'deleteAttribute' ],
+				onError: 'returnErrorMsg'
+			},
+			data: {
+				protocols: {
+					"http": true,
+					"https": true,
+					"ftp": true,
+					"somethingElse": "hello"
+				}
+			}
+		},
 		email: {
 			rules: {
 				attributesToCheck: {
