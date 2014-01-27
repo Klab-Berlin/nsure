@@ -25,6 +25,19 @@ var testObject = {
 		}
 	}
 };
+var testObject2 = {
+  userIds: [ 'abc' ],
+  level: 2,
+	a : '1',
+	b : '1234567890',
+	o: {
+		o_a: 1,
+		o_b: 'a string',
+		o_c: {
+			o_c_1: 7331
+		}
+	}
+};
 
 
 var rules = {
@@ -168,6 +181,7 @@ var rules = {
  
 var testEnsure = new nsure(rules);
 var result = testEnsure.check(testObject);
+var result2 = testEnsure.check(testObject2, [ 'level' ]);
 var helpers = {};
 
 describe(
@@ -221,6 +235,24 @@ describe(
 			function(done) {
 				helpers.checkResult.o.o_a.should.be.a.number;
 				helpers.checkResult.o.o_a.should.equal(1);
+				done();
+			}
+		);
+	}
+);
+
+
+describe(
+	'check with a attributesToCheck list',
+	function() {
+		it(
+			'only level should be present', 
+			function(done) {
+				result2.level.should.be.a.number;
+				should.not.exist(result2.userIds);
+				should.not.exist(result2.a);
+				should.not.exist(result2.b);
+				should.not.exist(result2.o);
 				done();
 			}
 		);
