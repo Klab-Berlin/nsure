@@ -258,3 +258,41 @@ describe(
 		);
 	}
 );
+
+/* 
+describe(
+	'check for allowed keys, types and values with lists',
+	function() {
+		it(
+			'only level should be present', 
+			function(done) {
+				result2.level.should.be.a.number;
+				should.not.exist(result2.userIds);
+				should.not.exist(result2.a);
+				should.not.exist(result2.b);
+				should.not.exist(result2.o);
+				done();
+			}
+		);
+	}
+);
+
+
+
+describe(
+	'check for allowed keys, types and values with functions',
+	function() {
+		it(
+			'only level should be present', 
+			function(done) {
+				result2.level.should.be.a.number;
+				should.not.exist(result2.userIds);
+				should.not.exist(result2.a);
+				should.not.exist(result2.b);
+				should.not.exist(result2.o);
+				done();
+			}
+		);
+	}
+);
+ */
