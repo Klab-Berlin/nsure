@@ -16,6 +16,26 @@ vwc = {
 			},
 			data: { active: 1 }
 		},
+		myDate: {
+			rules: {
+				"attributesToCheck": {
+					"myDate": {
+						"defaultTo": Date.now(),
+						"enforcePresence": true,
+						"checks": [ 'isDefined', 'isDate' ],
+						"isDefined": {			
+							"fallback": Date.now(),
+							"onFail": [ 'toFallback' ],
+						},
+						"isDate": {
+							"fallback": Date.now(),
+							"onFail": [ 'toFallback' ],			
+						}
+					},
+				}
+			},
+			data: { myDate: "bad date" }
+		},
 		objectContent: {
 			rules: {
 				"attributesToCheck": {
