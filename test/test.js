@@ -43,18 +43,23 @@ var testObject2 = {
 var rules = {
 	attributesToCheck: {
     level: {
-        checks: ['type', 'numberRange'],
-        type: {
-          expected: 'number',
-          onFail: [ 'toInt' ],
-          fallback: function(input, options, fullInput, fullRules) { console.log('Error detected in "level"! "level" must be a number!'); return fullInput.level; }
-        },
-        numberRange: {
-          min: 1,
-          max: 13,
-          onFail: [ 'toBorder' ]
-        }
-      },
+			checks: ['type', 'numberRange'],
+			type: {
+				expected: 'number',
+				onFail: [ 'toInt' ],
+				fallback: function(input, options, thisAttribute, fullInput, fullRules) { 
+					console.log('Error detected in "level"! "level" must be a number!');
+					// console.log(input);
+					// console.log(fullInput);
+					return 0; 
+				}
+			},
+			numberRange: {
+				min: 1,
+				max: 13,
+				onFail: [ 'toBorder' ]
+			}
+		},
 		a: {
 			checks: [ 'type', 'numberRange' ],
 			type: {
@@ -182,6 +187,11 @@ var rules = {
 var testEnsure = new nsure(rules);
 var result = testEnsure.check(testObject);
 var result2 = testEnsure.check(testObject2, [ 'level' ]);
+
+// console.log('==========');
+// console.log(result2);
+// console.log('==========');
+
 var helpers = {};
 
 describe(
@@ -258,7 +268,7 @@ describe(
 		);
 	}
 );
-
+ 
 /* 
 describe(
 	'check for allowed keys, types and values with lists',
