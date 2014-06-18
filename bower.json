@@ -1,0 +1,30 @@
+{
+  "name": "nsure",
+  "version": "0.2.21",
+  "homepage": "https://github.com/itsatony/nsure",
+  "authors": [
+    "itsatony <i@itsatony.com>"
+  ],
+  "description": "nsure is a JS class that allows deep testing/sanitation, modification chains and model generation of objects.",
+  "main": "lib/nsure.js",
+  "moduleType": [
+    "globals",
+    "node"
+  ],
+  "keywords": [
+    "model",
+    "verification",
+    "sanitation"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+	"dependencies": {
+    "minions": ">0.2.0"
+  },
+}
