@@ -90,7 +90,7 @@ vwc = {
 					email: {			
 						enforcePresence: true,
 						defaultTo: 'defaultEmail@itsatony.com',
-						checks: [ 'type', 'stringMaxLength', 'replace_trim', 'email' ],
+						checks: [ 'type', 'toLowerCase', 'stringMaxLength', 'replace_trim', 'email' ],
 						type: {
 								expected: 'string',
 								onFail: [ 'returnError' ],
@@ -99,6 +99,7 @@ vwc = {
 										msg: '[email] needs to be valid, >6 chars and <80 chars.'
 								}
 						},
+						toLowerCase: {},
 						stringMaxLength: {
 								max: 80,
 								onFail: [ 'returnError' ],
@@ -121,7 +122,7 @@ vwc = {
 					}
 				}
 			},
-			data: { email: 'bla @blub,de' }
+			data: { email: 'BLA@blub.de' }
 		},
 		gender: {
 			rules: {
