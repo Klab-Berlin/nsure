@@ -145,6 +145,47 @@ vwc = {
 			data: {
 				protocols: 'http'
 			}
+		},
+		emailArray: {
+			rules: {
+				'attributesToCheck': {
+					'emailList': {
+						checks: [ 'type', 'arrayOf' ],
+						defaultTo: function() {
+							return [];
+						},	
+						type: {
+							expected: 'array',
+							onFail: 'defaultTo', 
+							error: {
+								code: 'noArray',
+								msg: 'emailList must be a array.'
+							},
+							defaultTo: function() { return []; }
+						},
+						arrayOf: {
+							allowedTypes: [ 'string' ],
+							onError: 'defaultTo',
+							error: {
+								code: 'noEmail',
+								msg: 'emailList must be a array of email strings.'
+							},
+							defaultTo: function() { return []; },
+							valueCheck: function(input, options, thisAttribute, fullInput, fullRules) {
+								var emailRegEx = /[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?/;
+								if (emailRegEx.test(input) === true) { 
+									return input; 
+								}	else {
+									return void 0;
+								}
+							}
+						}
+					}
+				}
+			},
+			data: {
+				'emailList': [ 'bla', 'i@itsatony.com' ]
+			}
 		}
 	}
 };
