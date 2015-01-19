@@ -1,7 +1,7 @@
 {
   "name": "nsure",
   "description": "nsure is a JS class that allows deep testing/sanitation, modification chains and model generation of objects.",
-  "version": "0.2.26",
+  "version": "0.2.27",
   "author": "Toni Wagner <i@itsatony.com>",
   "engines": {
     "node": ">= 0.10.0"

@@ -186,6 +186,51 @@ vwc = {
 			data: {
 				'emailList': [ 'bla', 'i@itsatony.com' ]
 			}
+		},
+		deepChecks: {
+			rules: {
+				"attributesToCheck": {
+					"changed": {
+						defaultTo: {
+							timestamp: Date.now(),
+							userId: '000000000000000000000001'
+						},	
+						checks: [ 'type', 'subNsure' ],
+						type: {
+							expected: 'object',
+							onFail: [ 'returnError' ], 
+							error: {
+								code: 'noObject',
+								msg: 'changed must be a object.'
+							}
+						},
+						subNsure: {
+							attributesToCheck: {
+								'timestamp': Nsure.helpers.numberNsure(1380000000000, 1500000000000, Date.now()),
+								'userId': {
+									checks: [ 'type' ],
+									type: {
+										expected: 'string',
+										onFail: [ 'returnError' ], 
+										error: {
+											code: 'noString',
+											msg: 'userId must be a string.'
+										}
+									}
+								}
+							},
+							onUnruledAttributes: [ 'deleteAttribute' ],
+							onError: 'returnError'
+						}
+					}
+				}
+			},
+			data: {
+				"changed": {
+					timestamp: 0,
+					userId: 0
+				}
+			}
 		}
 	}
 };
@@ -305,8 +350,9 @@ function runNsure() {
 	}
 	var thisNsure = new Nsure(rules);
 	try {
-		var result = thisNsure.check(data);
+		var result = thisNsure.check(data, [], true);
 		vwc.activeNsure.result = result;
+		console.log(data, result);
 	} catch (err) {
 		return showStatus('error', 'nsure', err);
 	}

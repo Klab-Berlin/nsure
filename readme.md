@@ -264,7 +264,7 @@ Also, whenever a nsure is instanced using a ruleset, it will generate a model ba
 
 # VERSION
 
-v 0.1.0
+v 0.2.27
 
 
 # author
